@@ -129,7 +129,8 @@ if(!$this->module){
 			$params->set($k,$v);
 		}
 		$params->set('content_synchronize', 1);
-		$main_div_name = 'hikashop_category_information_module_'.$params->get('id');
+		// $main_div_name = 'hikashop_category_information_module_'.$params->get('id');
+		$main_div_name = $params->get('id');
 		$params->set('main_div_name',$main_div_name);
 		echo '<div class="hikashop_submodules" style="clear:both">'.hikashop_getLayout('product', 'listing', $params, $js).'</div>';
 	}
@@ -152,7 +153,7 @@ if(!empty($html)){
 	if(!empty($this->row->category_id))
 		$category_id = $this->row->category_id;
 ?>
-	<div id="<?php echo $this->params->get('main_div_name');?>" class="hikashop_category_information hikashop_categories_listing_main hikashop_category_listing_<?php echo $category_id; ?>">
+	<div class="grid-container">
 		<?php echo $html; ?>
 	</div>
 <?php }	?>

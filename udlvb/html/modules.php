@@ -15,3 +15,10 @@ function modChrome_menu($module, &$params, &$attribs)
 	echo $module->content;
 
 }
+function modChrome_footer_menu($module, &$params, &$attribs)
+{ 
+	echo '<nav class="footer-navbar">';
+	echo $module->content;
+	echo '</nav>';
+
+}

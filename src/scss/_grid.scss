@@ -5,8 +5,8 @@ body {
 
 body {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px auto minmax(120px, 150px);
+    grid-template-columns: 15fr;
+    grid-template-rows: 1fr 10fr 4fr;
     grid-template-areas:"header"
                         "main"
                         "footer";

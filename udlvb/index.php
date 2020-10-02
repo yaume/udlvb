@@ -20,12 +20,20 @@ include_once JPATH_THEMES . '/' . $this->template . '/lib/head.php';
 
 <body>
     <header class="title-bar">
-        <div class="title-bar-left"><img src="<?php echo $template;?>/img/Logo_UDLVB.jpg"></div>
-        <div class="title-bar-center"><img src="<?php echo $template;?>/img/Universite.jpg"></div>
+        <div class="title-bar-left show-for-large">
+            <a href="<?php echo $base;?>"><img src="<?php echo $template;?>/img/udlvb.svg"></a>
+            <a href="<?php echo $base;?>"><img src="<?php echo $template;?>/img/universite.svg"></a>
+    </div>
+        <div class="title-bar-center hide-for-large"><img src="<?php echo $template;?>/img/universite.svg"></div>
         <div class="title-bar-right">
-            <button class="menu-icon" type="button" data-toggle="nav"></button>
+            <button class="menu-icon hide-for-large" type="button" data-toggle="nav"></button>
+            <nav class="show-for-large">
+            <ul class="menu">
+                <jdoc:include type="modules" name="header"/>
+            </ul>
+        </nav>
         </div>
-        <nav class="off-canvas position-right" id="nav" data-off-canvas>
+        <nav class="off-canvas position-right  hide-for-large" id="nav" data-off-canvas>
             <button class="close-button" aria-label="Close menu" type="button" data-close>
                 <span aria-hidden="true">&times;</span>
             </button>

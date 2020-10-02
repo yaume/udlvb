@@ -195,9 +195,7 @@ if(!empty($this->rows)) {
 			$class = ($found == $row->category_id) ? ' hikashop_current_category' : '';
 			$class = ($current_parent_category == $row->category_id) ? ' hikashop_current_parent_category' : '';
 ?>
-			<div class="cell medium-<?php echo (int)$span; ?> small-12 hikashop_category hikashop_category_column_<?php echo $current_column; ?> hikashop_category_row_<?php echo $current_row.$class; ?>">
-				<!-- <div class="hikashop_container"> -->
-					<!-- <div class="hikashop_subcontainer <?php echo $borderClass; ?>"> -->
+			<div class="cell medium-<?php echo (int)$span; ?> small-12">
 <?php
 			$this->row =& $row;
 			echo $this->loadTemplate($this->params->get('div_item_layout_type'));
@@ -262,8 +260,7 @@ if(!empty($this->rows)) {
 			}
 ?>
 					</div>
-				<!-- </div> -->
-			<!-- </div> -->
+
 <?php
 			if($current_column >= $columns) {
 				$current_row++;

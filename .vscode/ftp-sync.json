@@ -18,7 +18,10 @@
         "\\.git",
         "\\.DS_Store",
         "\\src",
-        "\\node_modules"
+        "\\node_modules",
+        "config.yml",
+        "package.json",
+        "udlvb.code-workspace"
     ],
     "generatedFiles": {
         "extensionsToInclude": [

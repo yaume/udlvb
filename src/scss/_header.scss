@@ -1,8 +1,63 @@
-header{
-    img{
-        height: 70px;
+header {
+    img {
+        height: 2.5rem;
+        text-align: center;
+        padding: 0 1rem;
     }
-    .position-right{
-        top:80px;
+
+    .menu {
+        justify-content: flex-end;
+        font-family: 'Catamaran', sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
+
+        li {
+            a {
+                color: $gray-800;
+                line-height: 2.5rem;
+                padding-bottom: 0;
+                position: relative;
+                padding: 0.7rem 0.5rem;
+
+                &:not(.fa-search),&:not(.fa-cart) {
+
+                    &:before,
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        width: 0;
+                        height: 1px;
+                        background-color: $gray-600;
+                        opacity: 0.3;
+                        transition: all 0.3s ease-out;
+                    }
+
+                    &:after {
+                        right: 50%;
+                        left: auto;
+                    }
+                }
+            }
+
+            &.current,
+            &:hover {
+                a {
+
+                    &:before,
+                    &:after {
+                        opacity: 1;
+                        width: 45%;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .vertical a {
+        color: $white;
     }
 }

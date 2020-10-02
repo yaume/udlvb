@@ -8,29 +8,27 @@
  */
 defined('_JEXEC') or die('Restricted access');
 ?><?php if($this->config->get('thumbnail',1)){ ?>
-<!-- <div class="hikashop_category_image"> -->
+<figure>
 	<a href="<?php echo $this->row->link;?>" title="<?php echo $this->escape($this->row->category_name); ?>">
 		<?php
-		// $image_options = array('default' => true,'forcesize'=>$this->config->get('image_force_size',true),'scale'=>$this->config->get('image_scale_mode','inside'));
-		// $img = $this->image->getThumbnail(@$this->row->file_path, array('width' => $this->image->main_thumbnail_x, 'height' => $this->image->main_thumbnail_y), $image_options);
-		// if($img->success) {
-		// 	$html = '<img class="hikashop_product_listing_image" title="'.$this->escape(@$this->row->file_description).'" alt="'.$this->escape(@$this->row->file_name).'" src="'.$img->url.'"/>';
-		// 	if($this->config->get('add_webp_images', 1) && function_exists('imagewebp') && !empty($img->webpurl)) {
-		// 		$html = '
-		// 		<picture>
-		// 			<source srcset="'.$img->webpurl.'" type="image/webp">
-		// 			<source srcset="'.$img->url.'" type="image/'.$img->ext.'">
-		// 			'.$html.'
-		// 		</picture>
-		// 		';
-		// 	}
-		// 	echo $html;
-		// }
+		$image_options = array('default' => true,'forcesize'=>$this->config->get('image_force_size',true),'scale'=>$this->config->get('image_scale_mode','inside'));
+		$img = $this->image->getThumbnail(@$this->row->file_path, array('width' => $this->image->main_thumbnail_x, 'height' => $this->image->main_thumbnail_y), $image_options);
+		if($img->success) {
+			$html = '<img class="hikashop_product_listing_image" title="'.$this->escape(@$this->row->file_description).'" alt="'.$this->escape(@$this->row->file_name).'" src="'.$img->url.'"/>';
+			if($this->config->get('add_webp_images', 1) && function_exists('imagewebp') && !empty($img->webpurl)) {
+				$html = '
+				<picture>
+					<source srcset="'.$img->webpurl.'" type="image/webp">
+					<source srcset="'.$img->url.'" type="image/'.$img->ext.'">
+					'.$html.'
+				</picture>
+				';
+			}
+			echo $html;
+		}
 		?>
 	</a>
-<!-- </div> -->
-<?php } ?>
-<span class="hikashop_category_name">
+	<figcaption class="hikashop_category_name">
 	<a href="<?php echo $this->row->link;?>">
 		<?php
 		echo $this->row->category_name;
@@ -39,16 +37,19 @@ defined('_JEXEC') or die('Restricted access');
 		}
 		?>
 	</a>
-</span>
+</figcaption>
+</figure>
+<?php } ?>
+
 <?php
 if($this->rows[0]->category_id == $this->row->category_id){
 	$mainDivName = $this->params->get('main_div_name');
 ?>
-<style>
+<!-- <style>
 	#<?php echo $mainDivName; ?> .hikashop_category_image{
 		height:<?php echo $this->image->main_thumbnail_y;?>px;
 		text-align:center;
 		clear:both;
 	}
-</style>
+</style> -->
 <?php } ?>
